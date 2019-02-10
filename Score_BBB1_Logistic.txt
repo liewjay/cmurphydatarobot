@@ -1,0 +1,45 @@
+import java.util.*;
+import com.dmway.scoring.score.*;
+public class ScorerClass extends AbstractScorer {
+ public ScoreResult score(Map<String, Object> inputValues) {
+ScoreResult result = new ScoreResult();
+
+result.addKey("Account_",inputValues.get("Account_"));
+	Double Gender_category_0002 = ScoreUtil.trimFactor(ScoreUtil.convertToString( inputValues.get("Gender")),"M");result.addTransformation("Gender_category_0002",Gender_category_0002);
+	Double Money_ordinal_0002 = ScoreUtil.between(ScoreUtil.convertToDouble(inputValues.get("Money")),-110.2,109);result.addTransformation("Money_ordinal_0002",Money_ordinal_0002);
+	Double Rec_raw = ScoreUtil.ordinalNumeric(ScoreUtil.convertToDouble( inputValues.get("Rec")),-27.3606445177647,54.0837063079819);result.addTransformation("Rec_raw",Rec_raw);
+	Double Freq_piecewise_0001 = ScoreUtil.ordinalNumeric(ScoreUtil.convertToDouble(inputValues.get("Freq")),-13.4634106975521,2);result.addTransformation("Freq_piecewise_0001",Freq_piecewise_0001);
+	Double Freq_piecewise_0002 = ScoreUtil.piecewise(ScoreUtil.convertToDouble(inputValues.get("Freq")),2,7);result.addTransformation("Freq_piecewise_0002",Freq_piecewise_0002);
+	Double Freq_piecewise_0003 = ScoreUtil.piecewise(ScoreUtil.convertToDouble(inputValues.get("Freq")),7,21.2311534022527);result.addTransformation("Freq_piecewise_0003",Freq_piecewise_0003);
+	Double Number_piecewise_0002 = ScoreUtil.piecewise(ScoreUtil.convertToDouble(inputValues.get("Number")),1,2);result.addTransformation("Number_piecewise_0002",Number_piecewise_0002);
+	Double Number_piecewise_0003 = ScoreUtil.piecewise(ScoreUtil.convertToDouble(inputValues.get("Number")),2,6.43389281213542);result.addTransformation("Number_piecewise_0003",Number_piecewise_0003);
+	Double Number_0_overlapping_0001 = ScoreUtil.biggerOrEqualsThan(ScoreUtil.convertToDouble(inputValues.get("Number_0")),1);result.addTransformation("Number_0_overlapping_0001",Number_0_overlapping_0001);
+	Double Number_1_piecewise_0001 = ScoreUtil.ordinalNumeric(ScoreUtil.convertToDouble(inputValues.get("Number_1")),-4.98469888961775,1);result.addTransformation("Number_1_piecewise_0001",Number_1_piecewise_0001);
+	Double Number_1_piecewise_0002 = ScoreUtil.piecewise(ScoreUtil.convertToDouble(inputValues.get("Number_1")),1,2);result.addTransformation("Number_1_piecewise_0002",Number_1_piecewise_0002);
+	Double Number_1_piecewise_0003 = ScoreUtil.piecewise(ScoreUtil.convertToDouble(inputValues.get("Number_1")),2,6.85807812595863);result.addTransformation("Number_1_piecewise_0003",Number_1_piecewise_0003);
+	Double Number_2_piecewise_0002 = ScoreUtil.piecewise(ScoreUtil.convertToDouble(inputValues.get("Number_2")),1,4.31693795577871);result.addTransformation("Number_2_piecewise_0002",Number_2_piecewise_0002);
+	Double Number_3_piecewise_0001 = ScoreUtil.ordinalNumeric(ScoreUtil.convertToDouble(inputValues.get("Number_3")),-2.70974444138627,1);result.addTransformation("Number_3_piecewise_0001",Number_3_piecewise_0001);
+	Double Number_3_piecewise_0002 = ScoreUtil.piecewise(ScoreUtil.convertToDouble(inputValues.get("Number_3")),1,3.33176000071739);result.addTransformation("Number_3_piecewise_0002",Number_3_piecewise_0002);
+	Double Number_4_raw = ScoreUtil.ordinalNumeric(ScoreUtil.convertToDouble( inputValues.get("Number_4")),-3.64906220542874,4.74000381322629);result.addTransformation("Number_4_raw",Number_4_raw);
+	Double Art_flag_raw = ScoreUtil.ordinalNumeric(ScoreUtil.convertToDouble( inputValues.get("Art_flag")),-1.0985769296967,1.211724862571);result.addTransformation("Art_flag_raw",Art_flag_raw);
+  Double score = 1 / (1 + Math.exp( -(-2.20765042544271
++Gender_category_0002 * 0.994243844465129
++Money_ordinal_0002 * -0.1811681445608
++Rec_raw * -0.0931944802636107
++Freq_piecewise_0001 * 0.36678781408064
++Freq_piecewise_0002 * 0.439761674575926
++Freq_piecewise_0003 * 0.499147621860228
++Number_piecewise_0002 * -0.828025929476962
++Number_piecewise_0003 * -0.622904530023743
++Number_0_overlapping_0001 * -0.778029020586945
++Number_1_piecewise_0001 * -0.673570737646969
++Number_1_piecewise_0002 * -0.76384940346631
++Number_1_piecewise_0003 * -0.761403286744436
++Number_2_piecewise_0002 * -1.20662122616223
++Number_3_piecewise_0001 * -0.177053169005452
++Number_3_piecewise_0002 * -0.324233478289706
++Number_4_raw * 0.107422526834673
++Art_flag_raw * 1.2005747903038
+) )) ;
+result.setScore(score);
+return result;}}

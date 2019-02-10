@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: dr5c5df0267c6f8b2418b6bc07
+Implementation-Version: 2.0.0
+Implementation-Vendor-Id: com.datarobot.prediction
+Built-By: datarobot
+Build-Jdk: 1.7.0_67
+Specification-Title: dr5c5df0267c6f8b2418b6bc07
+Created-By: Apache Maven 3.3.9
+Specification-Version: 2.0
+
